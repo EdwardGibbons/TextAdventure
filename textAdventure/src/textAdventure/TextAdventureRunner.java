@@ -55,7 +55,7 @@ public class TextAdventureRunner {
 		String scenario = "start";
 		int scenarioNumber = 0;
 		
-		displayMessageln("WelcomE to The Quest To RETURN The Wallet\n");
+		displayMessageln("Welcome to The Quest To RETURN The Wallet\n");
 		
 		while (!end) {
 			choiceHistory.add(scenario);
