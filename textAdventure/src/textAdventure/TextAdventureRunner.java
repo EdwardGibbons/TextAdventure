@@ -3,7 +3,7 @@ package textAdventure;
 import java.util.*;
 
 public class TextAdventureRunner {
-	private static final int TEXT_SPEED = 4; 
+	private static final int TEXT_SPEED = 10; 
 	
 	public static void displayMessage(String msg) throws InterruptedException {		
 		for (int i = 0; i < msg.length(); i++) {
@@ -93,28 +93,28 @@ public class TextAdventureRunner {
 					end = true;
 					break;
 				case "walletgrab":
-	                displayMessageln("You pick up the wallet. The man has gotten quite far now however and is only barely in sight");
-	                String[] c2 = {"Swiftly follow the man to RETURN the wallet", "Steal the wallet"};
-	                String[] s2 = {"return", "steal"};
-	                scenario = getNextScenario(c2, s2, in);
-	                break;
+			                displayMessageln("You pick up the wallet. The man has gotten quite far now however and is only barely in sight");
+			                String[] c2 = {"Swiftly follow the man to RETURN the wallet", "Steal the wallet"};
+			                String[] s2 = {"return", "steal"};
+			                scenario = getNextScenario(c2, s2, in);
+			                break;
 	                	// beginning of RETURN route
-	            case "return":
-	                displayMessageln("You try to run after the man. The man gets through a stoplight and your stuck on the other side.");
-	                displayMessageln("The chase continues.");
-	                String[] rc1 = {"Jaywalk", "Wait for the stoplight to let you pass"};
-	                String[] rs1 = {"jaywalkInjury", "loseGuy"};
-	                scenario = getNextScenario(rc1,rs1, in);
-	                break;
-	            case "jaywalkInjury":
-	                displayMessageln("You try to run through the street, but you get hit by a car. While getting hit by the car the wallet falls out of your hand.");
-	                displayMessageln("You were delivered to a hospital shortly after getting by the car, but shortly died. Lesson: Don't jaywalk.");
-	                end = true;
-	                break;
+				case "return":
+			                displayMessageln("You try to run after the man. The man gets through a stoplight and your stuck on the other side.");
+			                displayMessageln("The chase continues.");
+			                String[] rc1 = {"Jaywalk", "Wait for the stoplight to let you pass"};
+			                String[] rs1 = {"jaywalkInjury", "loseGuy"};
+			                scenario = getNextScenario(rc1,rs1, in);
+			                break;
+		            	case "jaywalkInjury":
+			                displayMessageln("You try to run through the street, but you get hit by a car. While getting hit by the car the wallet falls out of your hand.");
+			                displayMessageln("You were delivered to a hospital shortly after getting by the car, but shortly died. Lesson: Don't jaywalk.");
+			                end = true;
+			                break;
 				case "loseGuy":
 					displayMessageln("By the time you are let through, the man has dissapeared. You decide to check through his wallet, to look for anything useful");
-	                String[] rc2 = {"Call his phone number listed in wallet", "Give up and steal money at this point", "Go to his listed address"};
-	                String[] rs2 = {"phoneCall", "laterSteal", "goToAddress"};
+			                String[] rc2 = {"Call his phone number listed in wallet", "Give up and steal money at this point", "Go to his listed address"};
+			                String[] rs2 = {"phoneCall", "laterSteal", "goToAddress"};
 					scenario = getNextScenario(rc2,rs2,in);
 					break;
 				case "phoneCall":
@@ -186,7 +186,7 @@ public class TextAdventureRunner {
 				case "climbFence":
 					displayMessageln("You climb the fence even though it is pretty high and fortunately you don't get hurt. You make it in the neighborhood.\n"
 							+ "Now that you are in the neighborhood, you search for the house. You find the house and put the wallet in the mailbox.\n"
-							+ "You climb the fence again to leave and succesfully RETURNED the wallet. Congratualtions! You win.");
+							+ "You climb the fence again to leave and succesfully RETURNED the wallet. Congratualtions! You win. And you chose the \nmost boring options possible");
 					end = true;
 					break;
 				// end of RETURN route
@@ -204,7 +204,7 @@ public class TextAdventureRunner {
 					scenario = getNextScenario(c5,s5,in);
 					break;
 				case "rooftops":
-					displayMessageln("You eagerly climb the ladder and successfully make it to the rooftops. You go jumping from rooftop to rooftop and cheer for joy as you have \nescaped the police. All of a sudden, a pigeon flies right in front of your face causing you to fall and 213 bones in your body.");
+					displayMessageln("You eagerly climb the ladder and successfully make it to the rooftops. You go jumping from rooftop to rooftop and cheer for joy as you have \nescaped the police. All of a sudden, a pigeon flies right in front of your face causing you to fall and break 213 bones in your body.");
 					end = true;
 					break;
 				case "crowd":
@@ -287,7 +287,7 @@ public class TextAdventureRunner {
 					end = true;
 					break;
 				case "jail":
-					displayMessageln("Soooo... You're in jail. You even have a roomate named Tod. You are stuck here... Forever.");
+					displayMessageln("Soooo... You're in jail. You even have a roommate named Tod. You are stuck here... Forever.");
 					String[] jc1 = {"Serve your life sentence", "Plan an escape"};
 					String[] js1 = {"acceptance", "escapePlan"};
 					scenario = getNextScenario(jc1,js1,in);
@@ -350,58 +350,31 @@ public class TextAdventureRunner {
 				case "alternateEscape":
 
 					displayMessageln("When you get back to the room, Tod shows you the map and you find that there is a closet not to far away that you are able to sneak into it. As you go to execute \n"
-
-							+ "the paln, a gaurd imediatly catches you.");
-
+							+ "the plan, a gaurd imediatly catches you.");
 					String[] c14 = {"Bribe the gaurd.","Make a pinkie promise."};
-
 					String[] s14 = {"bribe","promise"};
-
 					scenario = getNextScenario(c14,s14,in);
-
 					break;
-
 				case "bribe":
-
 					displayMessageln("You reach to your pocket to try and bribe the gaurd but you realize that they confiscated your wallet and you don't have money. You imeadeatly get moved to a \n"
-
 							+ "more secure prison cell where escape is impossible.");
-
 					end = true;
-
 					break;
-
 				case "promise":
-
 					displayMessageln("You make a pinkie promise to the gaurd that you won't try to escape. The gaurd believes this and lets you through. When you get in, you take a uniform and it fits \njust right.");
-
 					String[] c15 = {"Walk out and escape","Bring Tod with you."};
-
 					String[] s15 = {"caught","WooHoo"};
-
 					scenario = getNextScenario(c15,s15,in);
-
 					break;
-
 				case "WooHoo":
-
 					displayMessageln("You go to the cell and get Tod, as your walking out with Tod, a suspitious gaurd stops you and asks where your going. You say some vague things about transfering an \n"
-
 							+ "inmate and he lets you go. \nCongradulations! You escaped with Tod and now you have a new best friend and live happily ever after in Mexico.");
-
 					end = true;
-
 					break;
-
 				case "caught":
-
 					displayMessage("As you're making your way out, a suspitious gaurd stops you and asks you where your going. You struggle to make up a good excuse and the gaurd catches on to what \nyou've done and locks you in a more secure cell where escape is impossible.");
-
 					end = true;
-
 					break;
-
-
 				
 				case "searchRoom":
 					displayMessageln("You search the room. Near your bed you find a small crack in the wall and a small rock hammer.\n"
