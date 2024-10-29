@@ -192,8 +192,8 @@ public class TextAdventureRunner {
 				// end of RETURN route
 	                    
 				case "steal":
-	                displayMessageln("You grab and wallet and head the opposite direction. This would work out 99% of the time, but there are police officer nearby eating shawarma \nwho saw you steal the wallet. You go ahead and start running away. ");
-	                String[] c4 = {"Run", "Turn yourself in"};
+			                displayMessageln("You grab and wallet and head the opposite direction. This would work out 99% of the time, but there are police officer nearby eating shawarma \nwho saw you steal the wallet. You go ahead and start running away. ");
+			                String[] c4 = {"Run", "Turn yourself in"};
 					String[] s4 = {"runFromPolice", "jail"};
 					scenario = getNextScenario(c4,s4,in);
 	                    		break;
@@ -293,62 +293,39 @@ public class TextAdventureRunner {
 					scenario = getNextScenario(jc1,js1,in);
 					break;
 				
-				
 				case "escapePlan":
 					displayMessageln("You decide that you want to break out.");
 					String[] jc2 = {"Search the room", "Socialize with Tod."};
 					String[] js2 = {"searchRoom", "socialize"};
 					scenario = getNextScenario(jc2,js2,in);
 					break;
-					
 				case "acceptance":
-
 					displayMessageln("You decide to serve your sentance and live the rest of your life in jail. Not much intresting things happen, your in jail, and thats about it. You end \n"
-
 							+ "up dieing at the age of 74 from pnemonia. ");
 					end = true;
 					break;
-
 				case "socialize":
-
 					displayMessageln("You start talking to your roommate, Tod. You quickly became freinds as you realize that both of your judges had dementia. While in the cafateria, you \n"
-
 							+ "admit to Tod that you desire to escape. He admits that his old roomate wanted to escape as well. He tried to dig a hole through the wall and got about 3 inches \n"
-
 							+ "deep. Fortunatly, noone was able to hear your conversation due to a loud fight in the background.");
-
 					String[] c12 = {"Ask about how to escape","Ask what happened to Tod's previous roomate."};
-
 					String[] s12 = {"escapeRoute","informationRoute"};
-
 					scenario = getNextScenario(c12,s12,in);
-
 					break;
-
 				case "escapeRoute":
 					displayMessageln("Tod tells you that the old roomate was planning an escape for a while and you could check around the room for some useful tools. You go back to the cell.");
 					String[] co12 = {"Change your mind and serve you sentance with Tod.","Look around the room."};
 					String[] so12 = {"acceptance","searchRoom"};
-
 					scenario = getNextScenario(co12,so12,in);
-
 					break;
 				case "informationRoute":
-
 					displayMessageln("He ended up escaping through a crawl space in the sewers. He used a map to know that it was there. Unfortunatly, there were police waiting on the other \n"
-
 							+ "side and he got moved to a more secure cell.");
-
 					String[] c13 = {"Try to escape through the sewers.","Find another way."};
-
 					String[] s13 = {"sewer","alternateEscape"};
-
 					scenario = getNextScenario(c13,s13,in);
-
 					break;
-
 				case "alternateEscape":
-
 					displayMessageln("When you get back to the room, Tod shows you the map and you find that there is a closet not to far away that you are able to sneak into it. As you go to execute \n"
 							+ "the plan, a gaurd imediatly catches you.");
 					String[] c14 = {"Bribe the gaurd.","Make a pinkie promise."};
